@@ -43,6 +43,9 @@ a {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
@@ -107,6 +110,8 @@ h1 {
 
 .button.secondary {
   border: 1px solid #af5b2b;
+  background: #ffffff;
+  color: #af5b2b;
 }
 
 .section {
