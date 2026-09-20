@@ -50,6 +50,7 @@ a {
 }
 
 .nav-links a:focus-visible,
+.contact-panel a:focus-visible,
 .button:focus-visible {
   outline: 3px solid #2c1d16;
   outline-offset: 3px;
