@@ -15,7 +15,6 @@ a {
 }
 
 .hero {
-  background: linear-gradient(135deg, #fff3ea, #ffd8bf);
   padding: 1.5rem 1.5rem 4rem;
 }
 
@@ -94,8 +93,10 @@ a {
 }
 
 .logo-placeholder--large {
-  width: 1200px;
-  height: 500px;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  aspect-ratio: 12 / 5;
   border-radius: 1.25rem;
   font-size: 1.5rem;
 }
@@ -120,10 +121,6 @@ a {
   outline-offset: 3px;
 }
 
-.hero-content {
-  max-width: 720px;
-}
-
 .eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -142,17 +139,6 @@ h3 {
 h1 {
   font-size: clamp(2.2rem, 5vw, 4rem);
   margin-bottom: 1rem;
-}
-
-.service-area {
-  font-size: 1.25rem;
-  text-align: left;
-  margin-left: 0;
-}
-
-.hero-copy {
-  font-size: 1.1rem;
-  max-width: 42rem;
 }
 
 .hero-actions {
@@ -250,15 +236,14 @@ h1 {
   margin-bottom: 0;
 }
 
-.section-accent {
-  background: #fff1e6;
+.map-image {
+  width: 90%;
+  margin: 0 auto;
+  display: block;
 }
 
-.split-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
-  align-items: start;
+.about-copy {
+  max-width: 42rem;
 }
 
 .contact-panel {
