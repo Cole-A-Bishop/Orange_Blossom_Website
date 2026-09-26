@@ -3,8 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Orange Blossom RV Services offers mobile RV repair and maintenance in the Pittsburgh, PA area, including winterization, electrical, plumbing, and appliance service."
+    />
     <title>Orange Blossom Mobile RV Solutions</title>
     <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AutoRepair",
+        "name": "Orange Blossom RV Services",
+        "description": "Mobile RV repair and maintenance serving the Pittsburgh, PA area, including winterization, electrical, plumbing, and appliance service.",
+        "areaServed": {
+          "@type": "City",
+          "name": "Pittsburgh, PA"
+        },
+        "telephone": "+1-000-000-0000",
+        "email": "your-email@example.com",
+        "priceRange": "$$"
+      }
+    </script>
   </head>
   <body>
 
@@ -12,65 +37,75 @@
       <nav class="site-nav" aria-label="Primary">
         <div class="brand">
         </div>
-        <ul class="nav-links">
-          <li><a href="#service-map">Service Area</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#service-list">Services</a></li>
-          <li><a href="#about">About</a></li>
+        <button
+          type="button"
+          class="nav-toggle"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links" id="primary-nav">
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#service-map">Service Area</a></li>
+          <li><a href="#service-list">Services</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#about">About</a></li>
         </ul>
       </nav>
 
       <div class="site-logo">
         <span class="logo-placeholder logo-placeholder--large" aria-hidden="true">LOGO</span>
       </div>
-
-      <section class="hero-content">
-        <h1>Orange Blossom RV Services</h1>
-        <div class="hero-actions">
-          <a class="button primary" href="#contact">Contact Information</a>
-          <a class="button secondary" href="#service-list">View Services</a>
-          <a class="button secondary" href="#about">About Us</a>
-        </div>
-      </section>
     </header>
 
     <main>
+      <section class="section" id="contact">
+        <div class="section-heading">
+          <h2>Contact Information</h2>
+        </div>
+        <div class="contact-panel">
+          <div>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:your-email@example.com">your-email@example.com</a>
+            </p>
+            <p>
+              <strong>Phone:</strong>
+              <a href="tel:+10000000000">(000) 000-0000</a>
+            </p>
+            <p><strong>Response Time:</strong> Replies within 1 business day.</p>
+          </div>
+          <div>
+            <p>
+              We are active duty military and some times maybe out of town and servicing other areas. Please call to make an apointment.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section class="section" id="service-map">
         <div class="section-heading">
-          <p class="eyebrow">Service Area</p>
           <h2>Currently servicing the Pittsburgh PA area</h2>
         </div>
         <div class="card-grid">
           <article class="card">
-            <img
-              src="Service Area/Service area.png"
-              alt="Map of the Pittsburgh PA area serviced by Orange Blossom RV Services"
-              class="cert-image map-image"
-            />
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="certifications">
-        <div class="section-heading">
-          <p class="eyebrow">Certifications</p>
-          <h2>RV Technical Institute Certifications</h2>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <img
-              src="Certifications/RVTI certifications/RTVI_Level_1.png"
-              alt="Cole Bishop's Certified Level 1 RV Technician certificate from RV Technical Institute"
-              class="cert-image"
-            />
+            <div
+              id="service-map-canvas"
+              class="map-frame"
+              role="img"
+              aria-label="Map of the Pittsburgh PA area serviced by Orange Blossom RV Services, with the general 25 mile service radius highlighted"
+            ></div>
           </article>
         </div>
       </section>
 
       <section class="section" id="service-list">
         <div class="section-heading">
-          <p class="eyebrow">Services We Offer</p>
           <h2>Full-Service RV Repair &amp; Maintenance</h2>
         </div>
         <div class="service-grid">
@@ -133,51 +168,43 @@
         </div>
       </section>
 
-      <section class="section" id="about">
+      <section class="section" id="pricing">
         <div class="section-heading">
-          <p class="eyebrow">About</p>
-          <h2>About Us</h2>
+          <h2>Straightforward, Upfront Pricing</h2>
         </div>
-        <p class="about-copy">
-          Orange Blossom RV Services is committed to giving RV owners a
-          smooth, stress-free service experience from the first call to the
-          final walkthrough. Customers can count on clear communication,
-          dependable support, and care focused on getting them back on the
-          road with confidence.
-        </p>
+        <div class="service-grid">
+          <div class="service-item">
+            <h3>Call-Out Fee</h3>
+            <p>$125</p>
+          </div>
+          <div class="service-item">
+            <h3>Labor Rate</h3>
+            <p>$125 per hour, 1 hour minimum</p>
+          </div>
+          <div class="service-item">
+            <h3>Mileage</h3>
+            <p>$1.00 per mile for any distance over 25 miles</p>
+          </div>
+        </div>
       </section>
 
-      <section class="section" id="contact">
+      <section class="section" id="certifications">
         <div class="section-heading">
-          <p class="eyebrow">Contact</p>
-          <h2>Make it easy for customers to reach you</h2>
+          <h2>RV Technical Institute Certifications</h2>
         </div>
-        <div class="contact-panel">
-          <div>
-            <p>
-              <strong>Email to update:</strong>
-              <span>your-email@example.com</span>
-            </p>
-            <p>
-              <strong>Phone to update:</strong>
-              <span>(000) 000-0000</span>
-            </p>
-            <p><strong>Response Time:</strong> Replies within 1 business day.</p>
-          </div>
-          <div>
-            <p>
-              Reach out for availability, maintenance questions, or help getting
-              your RV ready for the next trip. Orange Blossom RV Services is
-              here to provide responsive support and dependable scheduling for
-              every customer.
-            </p>
-          </div>
+        <div class="card-grid">
+          <article class="card">
+            <img
+              src="Certifications/RVTI certifications/RTVI_Level_1.png"
+              alt="Cole Bishop's Certified Level 1 RV Technician certificate from RV Technical Institute"
+              class="cert-image"
+            />
+          </article>
         </div>
       </section>
 
       <section class="section" id="dometic-certifications">
         <div class="section-heading">
-          <p class="eyebrow">Certifications</p>
           <h2>Dometic Certifications</h2>
         </div>
         <div class="card-grid card-grid--certs">
@@ -218,6 +245,32 @@
           </article>
         </div>
       </section>
+
+      <section class="section" id="about">
+        <div class="section-heading">
+          <h2>About Us</h2>
+        </div>
+        <div class="card about-card">
+          <p class="about-copy">
+            Orange Blossom RV Services is committed to giving RV owners a
+            smooth, stress-free service experience from the first call to the
+            final walkthrough. Customers can count on clear communication,
+            dependable support, and care focused on getting them back on the
+            road with confidence.
+          </p>
+        </div>
+      </section>
     </main>
+
+    <a class="call-now-fab" href="tel:+10000000000" aria-label="Call Orange Blossom RV Services now">
+      Call Now
+    </a>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="script.js"></script>
   </body>
 </html>
