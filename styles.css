@@ -304,7 +304,23 @@ h1 {
 
 .about-copy {
   max-width: 42rem;
-  margin: 0;
+  margin: 0 0 1rem;
+}
+
+.about-copy:last-child {
+  margin-bottom: 0;
+}
+
+.about-subheading {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-name {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #af5b2b;
 }
 
 .contact-panel {
