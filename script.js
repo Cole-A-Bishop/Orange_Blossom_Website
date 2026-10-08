@@ -37,6 +37,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const lightbox = document.getElementById('cert-lightbox');
+  const lightboxImage = document.getElementById('cert-lightbox-image');
+  const lightboxClose = document.querySelector('.lightbox-close');
+  const certImages = document.querySelectorAll('.cert-image');
+
+  if (lightbox && lightboxImage && lightboxClose && certImages.length) {
+    let lastFocused = null;
+
+    const openLightbox = (img) => {
+      lastFocused = document.activeElement;
+      lightboxImage.src = img.src;
+      lightboxImage.alt = img.alt;
+      lightbox.classList.add('is-open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lightboxClose.focus();
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('is-open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImage.src = '';
+      document.body.style.overflow = '';
+      if (lastFocused) {
+        lastFocused.focus();
+      }
+    };
+
+    certImages.forEach((img) => {
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', `Enlarge certificate: ${img.alt}`);
+
+      img.addEventListener('click', () => openLightbox(img));
+      img.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openLightbox(img);
+        }
+      });
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+        closeLightbox();
+      }
+    });
+  }
+
   const mapEl = document.getElementById('service-map-canvas');
   if (mapEl && window.L) {
     const center = [40.54375464809823, -79.96329795152734];

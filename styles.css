@@ -284,6 +284,60 @@ h1 {
   height: auto;
   border-radius: 0;
   margin-bottom: 0;
+  cursor: zoom-in;
+  transition: opacity 0.2s ease;
+}
+
+.cert-image:hover,
+.cert-image:focus-visible {
+  opacity: 0.85;
+}
+
+.cert-image:focus-visible {
+  outline: 3px solid #af5b2b;
+  outline-offset: 3px;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: rgba(20, 10, 5, 0.85);
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-image {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 2.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.25rem 0.75rem;
+}
+
+.lightbox-close:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
 }
 
 .map-image {
