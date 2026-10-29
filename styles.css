@@ -393,9 +393,11 @@ h1 {
   display: none;
   position: fixed;
   bottom: 1.25rem;
+  left: 1.25rem;
   right: 1.25rem;
   z-index: 50;
-  gap: 0.75rem;
+  justify-content: space-between;
+  pointer-events: none;
 }
 
 .contact-fab {
@@ -406,6 +408,7 @@ h1 {
   text-decoration: none;
   font-weight: 700;
   box-shadow: 0 12px 30px rgba(70, 37, 20, 0.25);
+  pointer-events: auto;
 }
 
 .contact-fab:focus-visible {
