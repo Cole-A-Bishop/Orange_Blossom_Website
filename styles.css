@@ -108,6 +108,7 @@ a {
 
 .site-logo-img {
   width: 100%;
+  max-width: 520px;
   height: auto;
 }
 
